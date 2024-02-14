@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Cancellation Prediction</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        label {
+            margin-right: 10px;
+            min-width: 150px;
+            text-align: right;
+        }
+
+        input[type="number"],
+        input[type="checkbox"] {
+            flex: 1;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            margin-top: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hotel Booking Cancellation Prediction</h1>
+        <form action="/registrazione" method="post">
+            <div class="form-group">
+                <label for="lead-time">Lead Time:</label>
+                <input type="number" id="lead-time" name="lead-time" placeholder="Lead Time" required>
+            </div>
+            <div class="form-group">
+                <label for="avg-price">Average Price:</label>
+                <input type="number" id="avg-price" name="avg-price" placeholder="Average Price" required>
+            </div>
+            <div class="form-group">
+                <label for="special-requests">Special Requests:</label>
+                <input type="number" id="special-requests" name="special-requests" placeholder="Special Requests" required>
+            </div>
+            <div class="form-group">
+                <label for="day">Day:</label>
+                <input type="number" id="day" name="day" placeholder="Day" required min="1" max="31" pattern="\d+" title="Day must be a positive integer">
+            </div>
+            <div class="form-group">
+                <label for="month">Month:</label>
+                <input type="number" id="month" name="month" placeholder="Month" required min="1" max="12">
+            </div>
+            <div class="form-group">
+                <label for="market-segment-online">Market Segment (Online):</label>
+                <input type="checkbox" id="market-segment-online" name="market-segment-online">
+            </div>
+            <div class="form-group">
+                <label for="market-segment-offline">Market Segment (Offline):</label>
+                <input type="checkbox" id="market-segment-offline" name="market-segment-offline">
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <p id="prediction"></p>
+        </div>
+    </div>
+</body>
+</html>
